@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const CreateBook = (props) => {
   // Define the state with useState hook
+  const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const [book, setBook] = useState({
     title: '',
@@ -24,7 +25,7 @@ const CreateBook = (props) => {
     e.preventDefault();
 
     axios
-      .post('http://localhost:8082/api/books', book)
+      .post(`${apiUrl}/api/books`, book)
       .then((res) => {
         setBook({
           title: '',

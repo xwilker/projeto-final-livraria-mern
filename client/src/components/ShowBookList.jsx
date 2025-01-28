@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 import BookCard from './BookCard';
 
 function ShowBookList() {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     axios
-      .get('http://localhost:8082/api/books')
+      .get(⁠`${apiUrl}/api/books`⁠)
       .then((res) => {
         setBooks(res.data);
       })
